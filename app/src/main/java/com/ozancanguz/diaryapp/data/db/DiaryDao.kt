@@ -1,10 +1,7 @@
 package com.ozancanguz.diaryapp.data.db
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.ozancanguz.diaryapp.data.model.Diary
 
 @Dao
@@ -19,5 +16,9 @@ interface DiaryDao {
     // insert diary
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertData(diary: Diary)
+
+    // update
+    @Update
+    suspend fun updateData(diary: Diary)
 
 }

@@ -17,6 +17,11 @@ class Repository(private val diaryDao: DiaryDao) {
         return diaryDao.insertData(diary)
     }
 
+    // update data
+    suspend fun updateData(diary: Diary){
+        return diaryDao.updateData(diary)
+    }
+
 
 
 }

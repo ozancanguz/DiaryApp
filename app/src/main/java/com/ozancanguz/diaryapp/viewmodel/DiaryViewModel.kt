@@ -34,6 +34,13 @@ class DiaryViewModel(application: Application):AndroidViewModel(application) {
         }
     }
 
+    // update data
+    fun updateData(diary: Diary){
+        viewModelScope.launch {
+            repository.updateData(diary)
+        }
+    }
+
 
 
 }
