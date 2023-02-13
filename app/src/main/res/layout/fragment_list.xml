@@ -32,29 +32,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageView
-        android:id="@+id/no_data_imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-
-        android:src="@drawable/ic_baseline_add_24"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/recyclerView"
-        app:layout_constraintTop_toTopOf="@+id/recyclerView"
-        app:layout_constraintVertical_bias="0.37" />
-
     <TextView
         android:id="@+id/no_data_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:alpha="0.5"
-        android:text="no_data"
-        android:textSize="16sp"
+        android:text="No Diary"
+        android:textColor="@color/red"
+        android:textStyle="bold"
+        android:textSize="30sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/recyclerView"
-        app:layout_constraintTop_toBottomOf="@+id/no_data_imageView" />
+        tools:layout_editor_absoluteY="298dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
