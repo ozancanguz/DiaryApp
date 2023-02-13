@@ -13,7 +13,7 @@ interface DiaryDao {
 
     // get all diary from db
     @Query("select * from diary_table order by id Asc")
-    suspend fun getAllData(): LiveData<List<Diary>>
+     fun getAllData(): LiveData<List<Diary>>
 
 
     // insert diary
