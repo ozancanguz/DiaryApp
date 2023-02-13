@@ -21,4 +21,8 @@ interface DiaryDao {
     @Update
     suspend fun updateData(diary: Diary)
 
+    // delete single item
+    @Delete
+    suspend fun deleteSingleItem(diary: Diary)
+
 }

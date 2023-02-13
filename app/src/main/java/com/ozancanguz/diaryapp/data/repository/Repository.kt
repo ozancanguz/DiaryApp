@@ -22,6 +22,11 @@ class Repository(private val diaryDao: DiaryDao) {
         return diaryDao.updateData(diary)
     }
 
+    // delete single item
+    suspend fun deleteSingleItem(diary: Diary){
+        return diaryDao.deleteSingleItem(diary)
+    }
+
 
 
 }

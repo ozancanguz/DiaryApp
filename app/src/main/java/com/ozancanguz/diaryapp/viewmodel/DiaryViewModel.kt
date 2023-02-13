@@ -41,6 +41,13 @@ class DiaryViewModel(application: Application):AndroidViewModel(application) {
         }
     }
 
+    // delete single item
+    fun deleteSingleItem(diary: Diary){
+        viewModelScope.launch (Dispatchers.IO){
+            repository.deleteSingleItem(diary)
+        }
+    }
+
 
 
 }

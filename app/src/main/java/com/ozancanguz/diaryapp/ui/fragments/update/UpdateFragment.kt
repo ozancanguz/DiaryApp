@@ -1,5 +1,6 @@
 package com.ozancanguz.diaryapp.ui.fragments.update
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -67,7 +68,24 @@ class UpdateFragment : Fragment() {
         binding.currentTitleEt.setText(args.currentDiary.title)
         binding.currentDescriptionEt.setText(args.currentDiary.description)
     }
+    private fun deleteSingleItem() {
 
+        val builder= AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes") { _, _ ->
+            viewmodel.deleteSingleItem(args.currentDiary)
+            Toast.makeText(
+                requireContext(),
+                "Successfully Removed: ${args.currentDiary.title}",
+                Toast.LENGTH_SHORT
+            ).show()
+            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+        }
+        builder.setNegativeButton("No") { _, _ -> }
+        builder.setTitle("Delete '${args.currentDiary.title}'?")
+        builder.setMessage("Are you sure you want to remove '${args.currentDiary.title}'?")
+        builder.create().show()
+
+    }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.update_fragment_menu,menu)
         super.onCreateOptionsMenu(menu, inflater)
@@ -77,8 +95,12 @@ class UpdateFragment : Fragment() {
 
         if(item.itemId==R.id.menu_save){
             updateItem()
+        }else if(item.itemId==R.id.menu_delete){
+            deleteSingleItem()
         }
         return super.onOptionsItemSelected(item)
     }
+
+
 
 }

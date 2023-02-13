@@ -51,7 +51,7 @@ class ListFragment : Fragment() {
 
 
     private fun observeLiveData() {
-     binding.noDataTextView.visibility=View.VISIBLE
+
         diaryViewModel.getAllData.observe(viewLifecycleOwner, Observer {
             listAdapter.updateData(it)
         })
