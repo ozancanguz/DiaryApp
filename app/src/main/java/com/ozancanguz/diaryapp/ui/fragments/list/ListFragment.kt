@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.ozancanguz.diaryapp.R
 import com.ozancanguz.diaryapp.databinding.FragmentListBinding
+import kotlinx.android.synthetic.main.fragment_list.*
 
 
 class ListFragment : Fragment() {
@@ -23,7 +24,9 @@ class ListFragment : Fragment() {
          _binding = FragmentListBinding.inflate(inflater, container, false)
         val view = binding.root
 
-
+      binding.floatingActionButton.setOnClickListener {
+          findNavController().navigate(R.id.action_listFragment_to_addFragment)
+      }
         return view
     }
 
