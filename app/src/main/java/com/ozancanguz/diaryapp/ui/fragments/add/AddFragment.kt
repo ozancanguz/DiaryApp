@@ -49,7 +49,7 @@ class AddFragment : Fragment() {
     fun insertToDb(){
         val title=binding.titleEt.text.toString()
         val description=binding.descriptionEt.text.toString()
-        var newData= Diary(title,description)
+        var newData= Diary(0,title,description)
         diaryViewModel.insertData(newData)
         findNavController().navigate(R.id.action_addFragment_to_listFragment)
     }

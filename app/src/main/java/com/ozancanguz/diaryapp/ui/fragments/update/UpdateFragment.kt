@@ -2,8 +2,10 @@ package com.ozancanguz.diaryapp.ui.fragments.update
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.ozancanguz.diaryapp.R
 import com.ozancanguz.diaryapp.data.model.Diary
@@ -48,7 +50,14 @@ class UpdateFragment : Fragment() {
         val title=binding.currentTitleEt.text.toString()
         val description=binding.currentDescriptionEt.text.toString()
 
-        val updatedItem=Diary(title,description)
+        val updatedItem=Diary(args.currentDiary.id,title,description)
+
+// data updated in fragment list
+        viewmodel.updateData(updatedItem)
+        Toast.makeText(requireContext(),"item updated", Toast.LENGTH_LONG).show()
+
+        // navigate to fragment list
+        findNavController().navigate(R.id.action_updateFragment_to_listFragment)
 
 
 
