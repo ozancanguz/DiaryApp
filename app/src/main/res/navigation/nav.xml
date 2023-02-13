@@ -8,12 +8,12 @@
     <fragment
         android:id="@+id/addFragment"
         android:name="com.ozancanguz.diaryapp.ui.fragments.add.AddFragment"
-        android:label="fragment_add"
+        android:label="Add Diary"
         tools:layout="@layout/fragment_add" />
     <fragment
         android:id="@+id/listFragment"
         android:name="com.ozancanguz.diaryapp.ui.fragments.list.ListFragment"
-        android:label="fragment_list"
+        android:label="Diary"
         tools:layout="@layout/fragment_list" >
         <action
             android:id="@+id/action_listFragment_to_addFragment"
@@ -22,6 +22,6 @@
     <fragment
         android:id="@+id/updateFragment"
         android:name="com.ozancanguz.diaryapp.ui.fragments.update.UpdateFragment"
-        android:label="fragment_update"
+        android:label="Update Diary"
         tools:layout="@layout/fragment_update" />
 </navigation>
