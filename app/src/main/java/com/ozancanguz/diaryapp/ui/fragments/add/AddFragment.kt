@@ -5,6 +5,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ozancanguz.diaryapp.R
+import com.ozancanguz.diaryapp.data.model.Diary
 import com.ozancanguz.diaryapp.databinding.FragmentAddBinding
 import kotlinx.android.synthetic.main.fragment_list.*
 
@@ -32,6 +33,13 @@ class AddFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.add_fragment_menu,menu)
         super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    fun insertToDb(){
+        val title=binding.titleEt.text.toString()
+        val description=binding.descriptionEt.text.toString()
+
+        var newData= Diary(title,description)
     }
 
 
