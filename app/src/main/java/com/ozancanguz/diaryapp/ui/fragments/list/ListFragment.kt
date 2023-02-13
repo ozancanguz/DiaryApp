@@ -12,8 +12,7 @@ import com.ozancanguz.diaryapp.databinding.FragmentListBinding
 
 class ListFragment : Fragment() {
        private var _binding: FragmentListBinding? = null
-
-    private val binding get() = _binding!!
+       private val binding get() = _binding!!
 
 
     override fun onCreateView(
