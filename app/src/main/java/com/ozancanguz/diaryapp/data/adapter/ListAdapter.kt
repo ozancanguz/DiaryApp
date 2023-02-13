@@ -3,9 +3,11 @@ package com.ozancanguz.diaryapp.data.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.ozancanguz.diaryapp.R
 import com.ozancanguz.diaryapp.data.model.Diary
+import com.ozancanguz.diaryapp.ui.fragments.list.ListFragmentDirections
 import kotlinx.android.synthetic.main.list_row_layout.view.*
 
 class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
@@ -37,6 +39,13 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
         holder.itemView.title_txt.text=currentItem.title
         holder.itemView.description_txt.text=currentItem.description
 
+
+        // send current diary to update diary
+        holder.itemView.setOnClickListener {
+            val directions=ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
+            holder.itemView.findNavController().navigate(directions)
+
+        }
     }
 
     override fun getItemCount(): Int {

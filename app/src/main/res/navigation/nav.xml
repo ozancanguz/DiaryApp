@@ -25,10 +25,17 @@
         <action
             android:id="@+id/action_listFragment_to_updateFragment"
             app:destination="@id/updateFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_updateFragment2"
+            app:destination="@id/updateFragment" />
     </fragment>
     <fragment
         android:id="@+id/updateFragment"
         android:name="com.ozancanguz.diaryapp.ui.fragments.update.UpdateFragment"
         android:label="Update Diary"
-        tools:layout="@layout/fragment_update" />
+        tools:layout="@layout/fragment_update" >
+        <argument
+            android:name="currentDiary"
+            app:argType="com.ozancanguz.diaryapp.data.model.Diary" />
+    </fragment>
 </navigation>
