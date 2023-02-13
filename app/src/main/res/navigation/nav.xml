@@ -9,7 +9,11 @@
         android:id="@+id/addFragment"
         android:name="com.ozancanguz.diaryapp.ui.fragments.add.AddFragment"
         android:label="Add Diary"
-        tools:layout="@layout/fragment_add" />
+        tools:layout="@layout/fragment_add" >
+        <action
+            android:id="@+id/action_addFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
     <fragment
         android:id="@+id/listFragment"
         android:name="com.ozancanguz.diaryapp.ui.fragments.list.ListFragment"
@@ -18,6 +22,9 @@
         <action
             android:id="@+id/action_listFragment_to_addFragment"
             app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
     </fragment>
     <fragment
         android:id="@+id/updateFragment"
