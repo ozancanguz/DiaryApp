@@ -5,8 +5,11 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import com.ozancanguz.diaryapp.data.db.DiaryDao
 import com.ozancanguz.diaryapp.data.model.Diary
+import dagger.hilt.android.scopes.ViewModelScoped
+import javax.inject.Inject
 
-class Repository(private val diaryDao: DiaryDao) {
+@ViewModelScoped
+class Repository@Inject constructor(private val diaryDao: DiaryDao) {
 
 
     // get all data from dao

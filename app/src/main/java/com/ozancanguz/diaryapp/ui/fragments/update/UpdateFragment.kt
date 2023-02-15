@@ -12,7 +12,9 @@ import com.ozancanguz.diaryapp.R
 import com.ozancanguz.diaryapp.data.model.Diary
 import com.ozancanguz.diaryapp.databinding.FragmentUpdateBinding
 import com.ozancanguz.diaryapp.viewmodel.DiaryViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 
 class UpdateFragment : Fragment() {
        private var _binding: FragmentUpdateBinding? = null

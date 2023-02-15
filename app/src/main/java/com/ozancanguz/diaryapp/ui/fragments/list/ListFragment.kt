@@ -18,8 +18,10 @@ import com.ozancanguz.diaryapp.data.adapter.ListAdapter
 import com.ozancanguz.diaryapp.databinding.FragmentListBinding
 import com.ozancanguz.diaryapp.util.SwipeToDelete
 import com.ozancanguz.diaryapp.viewmodel.DiaryViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_list.*
 
+@AndroidEntryPoint
 
 class ListFragment : Fragment(),SearchView.OnQueryTextListener{
        private var _binding: FragmentListBinding? = null

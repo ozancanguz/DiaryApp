@@ -7,16 +7,13 @@ import androidx.lifecycle.viewModelScope
 import com.ozancanguz.diaryapp.data.db.DiaryDatabase
 import com.ozancanguz.diaryapp.data.model.Diary
 import com.ozancanguz.diaryapp.data.repository.Repository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class DiaryViewModel(application: Application):AndroidViewModel(application) {
-
-    // get dao ref
-    val diaryDao=DiaryDatabase.getDatabase(application).diaryDao()
-
-    //get repository ref
-    private val repository = Repository(diaryDao)
+@HiltViewModel
+class DiaryViewModel@Inject constructor(private val repository: Repository,application: Application):AndroidViewModel(application) {
 
 
     //get all data list

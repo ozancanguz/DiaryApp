@@ -9,8 +9,10 @@ import com.ozancanguz.diaryapp.R
 import com.ozancanguz.diaryapp.data.model.Diary
 import com.ozancanguz.diaryapp.databinding.FragmentAddBinding
 import com.ozancanguz.diaryapp.viewmodel.DiaryViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_list.*
 
+@AndroidEntryPoint
 
 class AddFragment : Fragment() {
       private var _binding: FragmentAddBinding? = null

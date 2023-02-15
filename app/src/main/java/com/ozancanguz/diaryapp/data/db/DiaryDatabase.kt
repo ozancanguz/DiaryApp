@@ -4,39 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.ozancanguz.diaryapp.data.model.Diary
 
-@Database(entities = [Diary::class], version = 1, exportSchema = true)
+@Database(entities = [Diary::class], version = 1,
+    exportSchema = false,)
+
+@TypeConverters(TypeConverter::class)
 abstract class DiaryDatabase:RoomDatabase(){
-
-    // get reference for dao
     abstract fun diaryDao():DiaryDao
-
-    companion object{
-        @Volatile
-        private var INSTANCE: DiaryDatabase? = null
-
-
-        fun getDatabase(context: Context): DiaryDatabase {
-            val tempInstance = INSTANCE
-            if (tempInstance != null) {
-                return tempInstance
-            }
-            synchronized(this) {
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    DiaryDatabase::class.java,
-                    "Diary_database"
-                ).build()
-                INSTANCE = instance
-                return instance
-            }
-        }
-
-    }
-
-
-
-
-
 }
