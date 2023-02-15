@@ -2,7 +2,13 @@
 
 -I have developed a android mobile application that keeps your diary.
 
+# DEMO
+
+![diaryapp](https://user-images.githubusercontent.com/64928807/219084693-fdb641ab-5827-4ce4-8d26-b05063d9df4e.gif)
+
+
 # Architecture
+
 
 This app implements MVVM architecture. App consist of different fragments and 1 root activity. Activity holds a container layout in order to manage fragments which will be controlled by navigation component. Here is the package structure:
 
