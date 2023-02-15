@@ -1,7 +1,9 @@
 package com.ozancanguz.diaryapp.ui.fragments.list
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
+import androidx.appcompat.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -19,7 +21,7 @@ import com.ozancanguz.diaryapp.viewmodel.DiaryViewModel
 import kotlinx.android.synthetic.main.fragment_list.*
 
 
-class ListFragment : Fragment() {
+class ListFragment : Fragment(),SearchView.OnQueryTextListener{
        private var _binding: FragmentListBinding? = null
        private val binding get() = _binding!!
 
@@ -70,6 +72,11 @@ class ListFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.listfragment_menu,menu)
+        // search query applied
+        val search=menu.findItem(R.id.menu_search)
+        val searchView=search.actionView as? SearchView
+        searchView?.isSubmitButtonEnabled=true
+        searchView?.setOnQueryTextListener(this)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
@@ -89,6 +96,36 @@ class ListFragment : Fragment() {
         itemTouchHelper.attachToRecyclerView(recyclerView)
     }
 
+
+    // search database
+    private fun searchThroughDatabase(query: String) {
+        val searchQuery = "%$query%"
+        diaryViewModel.searchDatabase(searchQuery).observe(viewLifecycleOwner) { list ->
+            list?.let {
+                Log.d("ListFragment", "searchThroughDatabase")
+                listAdapter.updateData(it)
+            }
+        }
+    }
+
+
+    // for search database
+    override fun onQueryTextSubmit(query: String?): Boolean {
+
+        if(query!=null){
+            searchThroughDatabase(query)
+        }
+        return true
+    }
+
+
+
+    override fun onQueryTextChange(query: String?): Boolean {
+        if(query!=null){
+            searchThroughDatabase(query)
+        }
+        return true
+    }
 
 
 }
