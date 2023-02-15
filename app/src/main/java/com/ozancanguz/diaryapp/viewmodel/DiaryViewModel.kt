@@ -48,6 +48,11 @@ class DiaryViewModel(application: Application):AndroidViewModel(application) {
         }
     }
 
+    // search database with query
+    fun searchDatabase(searchQuery:String):LiveData<List<Diary>>{
 
+        return repository.searchQuery(searchQuery)
+
+    }
 
 }

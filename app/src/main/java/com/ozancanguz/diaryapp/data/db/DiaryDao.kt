@@ -25,4 +25,9 @@ interface DiaryDao {
     @Delete
     suspend fun deleteSingleItem(diary: Diary)
 
+    @Query("select * from diary_table where title like  :searchQuery")
+    fun searchDatabase(searchQuery:String):LiveData<List<Diary>>
+
+
+
 }

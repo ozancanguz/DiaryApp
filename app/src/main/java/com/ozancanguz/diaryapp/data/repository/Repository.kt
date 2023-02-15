@@ -28,5 +28,10 @@ class Repository(private val diaryDao: DiaryDao) {
     }
 
 
+    // search data
+    fun searchQuery(searchQuery:String):LiveData<List<Diary>>{
+        return diaryDao.searchDatabase(searchQuery)
+    }
+
 
 }
