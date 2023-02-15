@@ -20,6 +20,7 @@ import com.ozancanguz.diaryapp.util.SwipeToDelete
 import com.ozancanguz.diaryapp.viewmodel.DiaryViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_list.*
+import kotlinx.android.synthetic.main.removed_toast.*
 
 @AndroidEntryPoint
 
@@ -89,7 +90,11 @@ class ListFragment : Fragment(),SearchView.OnQueryTextListener{
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val itemtoDelete=listAdapter.todolist[viewHolder.adapterPosition]
                 diaryViewModel.deleteSingleItem(itemtoDelete)
-                Toast.makeText(requireContext(),"Removed successfully", Toast.LENGTH_LONG).show()
+                Toast(requireContext()).apply {
+                    duration=Toast.LENGTH_LONG
+                    setGravity(Gravity.CENTER,0,0)
+                    view=layoutInflater.inflate(R.layout.removed_toast,removedToast)
+                }.show()
 
 
             }

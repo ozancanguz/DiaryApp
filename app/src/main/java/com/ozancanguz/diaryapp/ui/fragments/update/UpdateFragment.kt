@@ -13,6 +13,7 @@ import com.ozancanguz.diaryapp.data.model.Diary
 import com.ozancanguz.diaryapp.databinding.FragmentUpdateBinding
 import com.ozancanguz.diaryapp.viewmodel.DiaryViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.custom_toast.*
 
 @AndroidEntryPoint
 
@@ -57,7 +58,11 @@ class UpdateFragment : Fragment() {
 
 // data updated in fragment list
         viewmodel.updateData(updatedItem)
-        Toast.makeText(requireContext(),"item updated", Toast.LENGTH_LONG).show()
+        Toast(requireContext()).apply {
+            duration=Toast.LENGTH_LONG
+            setGravity(Gravity.CENTER,0,0)
+            view=layoutInflater.inflate(R.layout.custom_toast,updatetoast)
+        }.show()
 
         // navigate to fragment list
         findNavController().navigate(R.id.action_updateFragment_to_listFragment)
